@@ -30,7 +30,7 @@ const Bookmarks = (function() {
     console.log(`render ran`)
     const bookmarksString = generateBookmarksString(bookmarks)
 
-    $(`.bookmarks-list`).html(bookmarksString)
+    $(`.js-bookmarks-list`).html(bookmarksString)
   }
 
   const handleError = (jqXHR, status, errThrown) => {
@@ -39,19 +39,52 @@ const Bookmarks = (function() {
   }
 
   const handleNewBookmarkSubmit = () => {
-    $(`#js-bookmarks-list-form`).submit(event => {
+    $(`#js-add-bookmark-form`).submit(event => {
       event.preventDefault()
       const bookmark = {
-        title: this[`title`],
-        url: this[`url`],
-        desc: this[`desc`],
-        rating: this[`rating`],
+        title: event.currentTarget[`title`].value,
+        url: event.currentTarget[`url`].value,
+        desc: event.currentTarget[`desc`].value,
+        rating: event.currentTarget[`rating`].value,
       }
-      console.log(bookmark)
+      api.createBookmark(bookmark, data => {
+        store.addItem(data)
+        render()
+      }, handleError)
     })
   }
 
-  return {
+  const getBookmarkIdFromElement = (bookmark) => {
+    return $(bookmark)
+      .closest(`.js-bookmark-element`)
+      .data(`id`)
+  }
 
+  const handleDeleteBookmarkClicked = () => {
+    $(`.js-bookmarks-list`).on(`click`, `.js-bookmark-delete`, event => {
+      const id = getBookmarkIdFromElement(event.currentTarget)
+      api.deleteBookmark(id, data => {
+        store.findAndDelete(id)
+        render()
+      }, handleError)
+    })
+  }
+
+  const handleChangeRatingFilter = () => {
+    $(`.js-rating-filter`).on(`change`, event => {
+      store.setRatingLevel(event.currentTarget.value)
+      render()
+    })
+  }
+
+  const bindEventListeners = () => {
+    handleNewBookmarkSubmit()
+    handleDeleteBookmarkClicked()
+    handleChangeRatingFilter()
+  }
+
+  return {
+    render,
+    bindEventListeners,
   }
 }())
