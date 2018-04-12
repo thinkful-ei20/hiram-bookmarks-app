@@ -2,19 +2,38 @@ const api = (function() {
   const BASE_URL = `https://forgiv.github.io/todo-list-react/`
   const BOOKMARKS_URL = `${BASE_URL}/bookmarks`
 
-  getBookmarks = () => {
-
+  getBookmarks = (callback) => {
+    $.getJSON(BOOKMARKS_URL, callback)
   }
 
-  addBookmark = () => {
-
+  addBookmark = (data, callback, errCallback) => {
+    $.ajax({
+      url: BOOKMARKS_URL,
+      method: `POST`,
+      contentType: `application/json`,
+      data: data,
+      success: callback,
+      error: errCallback,
+    })
   }
 
-  updateBookmark = () => {
-
+  updateBookmark = (id, newData, callback, errCallback) => {
+    $.ajax({
+      url: `${BOOKMARKS_URL}/${id}`,
+      method: `PATCH`,
+      contentType: `application/json`,
+      data: newData,
+      success: callback,
+      error: errCallback,
+    })
   }
 
-  deleteBookmark = () => {
-    
+  deleteBookmark = (id, callback, errCallback) => {
+    $.ajax({
+      url: `${BOOKMARKS_URL}/${id}`,
+      method: `DELETE`,
+      success: callback,
+      error: errCallback,
+    })
   }
 }())
