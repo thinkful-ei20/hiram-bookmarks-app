@@ -1,6 +1,6 @@
 const store = (function() {
   const addBookmark = (bookmark) => {
-    bookmark.detailed = `condensed`
+    bookmark.detailed = false
     store.bookmarks.push(bookmark)
   }
 
@@ -28,5 +28,6 @@ const store = (function() {
     addBookmark,
     findAndDelete,
     setMinimumRating,
+    toggleBookmarkDetailed,
   }
 }())

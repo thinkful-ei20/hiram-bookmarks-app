@@ -1,10 +1,10 @@
 const Bookmarks = (function() {
-  const generateBookmarkElement = (bookmark, view = `condensed`) => {
+  const generateBookmarkElement = (bookmark) => {
     let details = ``
-    if (view === `detailed`) {
+    if (bookmark.detailed) {
       details = `
-        <p class="bookmark-desc">${bookmark.desc}</>
-        <a class="bookmark-link" href="${bookmark.url}">Visit Site</a>
+        <p class="bookmark-desc">${bookmark.desc}</p>
+        <a class="bookmark-link" href="${bookmark.url}" target="_blank">Visit Site</a>
       `
     }
     return `
@@ -85,10 +85,19 @@ const Bookmarks = (function() {
     })
   }
 
+  const handleBookmarkClicked = () => {
+    $(`.js-bookmarks-list`).on(`click`, `.js-bookmark-element`, event => {
+      const id = $(event.currentTarget).data(`id`)
+      store.toggleBookmarkDetailed(id)
+      render()
+    })
+  }
+
   const bindEventListeners = () => {
     handleNewBookmarkSubmit()
     handleDeleteBookmarkClicked()
     handleChangeRatingFilter()
+    handleBookmarkClicked()
   }
 
   return {
