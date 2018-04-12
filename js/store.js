@@ -1,5 +1,6 @@
 const store = (function() {
   const addBookmark = (bookmark) => {
+    bookmark.detailed = `condensed`
     store.bookmarks.push(bookmark)
   }
 
@@ -13,6 +14,11 @@ const store = (function() {
 
   const setMinimumRating = (rating) => {
     store.minimumRating = rating
+  }
+
+  const toggleBookmarkDetailed = (id) => {
+    const bookmark = findById(id)
+    bookmark.detailed = !bookmark.detailed
   }
 
   return {
