@@ -64,7 +64,7 @@ const Bookmarks = (function() {
 
   const render = () => {
     const bookmarks = store.bookmarks.filter(bookmark => {
-      return bookmark.rating > store.minimumRating;
+      return bookmark.rating >= store.minimumRating;
     });
 
     if (store.error) {
