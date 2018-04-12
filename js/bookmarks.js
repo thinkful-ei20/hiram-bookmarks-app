@@ -1,6 +1,6 @@
 const Bookmarks = (function() {
   const gernerateRatingsFilter = () => {
-    if (store.addForm) return '';
+    if (store.addForm) return "";
     return `
     <label class="ratings-filter">
       Minimum Rating:
@@ -23,15 +23,18 @@ const Bookmarks = (function() {
     <form role="form" id="js-add-bookmark-form" class="add-bookmark-form">
       <label aria-label="title">
         <p>Title</p>
-        <input type="text" name="title" id="" value="${store.tmpBookmark.title || ''}" required>
+        <input type="text" name="title" id="" value="${store.tmpBookmark
+          .title || ""}" required>
       </label>
       <label aria-label="description">
         <p>Description</p>
-        <input type="text" name="desc" id="" value="${store.tmpBookmark.desc || ''}">
+        <input type="text" name="desc" id="" value="${store.tmpBookmark.desc ||
+          ""}">
       </label>
       <label>
         <p>URL</p>
-        <input type="text" name="url" id="" value="${store.tmpBookmark.url || ''}" required>
+        <input type="text" name="url" id="" value="${store.tmpBookmark.url ||
+          ""}" required>
       </label>
       <label>
         <p>Rating</p>
@@ -43,12 +46,14 @@ const Bookmarks = (function() {
           <option value="5">5</option>
         </select>
       </label>
-      <button role="button" type="submit">
-        <span class="button-label">Add</span>
-      </button>
-      <button role="button" class="js-button-cancel">
-        <span class="button-label">Cancel</span>
-      </button>
+      <div class="form-button-group">
+        <button role="button" type="submit">
+          <span class="button-label">Add</span>
+        </button>
+        <button role="button" class="js-button-cancel">
+          <span class="button-label">Cancel</span>
+        </button>
+      </div>
     </form>
     `;
   };
@@ -65,19 +70,39 @@ const Bookmarks = (function() {
     }
     return `
       <li class="js-bookmark-element bookmark-item" data-id="${bookmark.id}">
-        <h2 class="bookmark-item-title">${bookmark.title}</h2>
-        <small class="bookmark-item-rating">
-          <span class="fa fa-star ${bookmark.rating >= 1 ? "checked" : ""}"></span>
-          <span class="fa fa-star ${bookmark.rating >= 2 ? "checked" : ""}"></span>
-          <span class="fa fa-star ${bookmark.rating >= 3 ? "checked" : ""}"></span>
-          <span class="fa fa-star ${bookmark.rating >= 4 ? "checked" : ""}"></span>
-          <span class="fa fa-star ${bookmark.rating >= 5 ? "checked" : ""}"></span>
-        </small>
-        ${details}
-        <div class="bookmark-item-controls">
-          <button role="button" class="bookmark-delete js-bookmark-delete">
-            <span class="button-label">Delete</span>
-          </button>
+        <header class="bookmark-item-header">
+          <div class="bookmark-item-header-left">
+            <h2 class="bookmark-item-title">${bookmark.title}</h2>
+            <small class="bookmark-item-rating">
+              <span class="fa fa-star ${
+                bookmark.rating >= 1 ? "checked" : ""
+              }"></span>
+              <span class="fa fa-star ${
+                bookmark.rating >= 2 ? "checked" : ""
+              }"></span>
+              <span class="fa fa-star ${
+                bookmark.rating >= 3 ? "checked" : ""
+              }"></span>
+              <span class="fa fa-star ${
+                bookmark.rating >= 4 ? "checked" : ""
+              }"></span>
+              <span class="fa fa-star ${
+                bookmark.rating >= 5 ? "checked" : ""
+              }"></span>
+            </small>
+          </div>
+          <div class="bookmark-item-header-right">
+            <div class="bookmark-item-controls">
+              <button role="button" class="bookmark-delete js-bookmark-delete">
+                <span class="button-label">Delete</span>
+              </button>
+            </div>
+          </div>
+        </header>
+        <div class="bookmark-item-body">
+          <div class="bookmark-item-content">
+            ${details}
+          </div>
         </div>
       </li>
     `;
@@ -127,7 +152,7 @@ const Bookmarks = (function() {
       store.toggleAddForm();
       render();
     });
-  }
+  };
 
   const handleNewBookmarkSubmit = () => {
     $(`main`).on(`submit`, `#js-add-bookmark-form`, event => {
@@ -144,7 +169,7 @@ const Bookmarks = (function() {
         data => {
           store.addBookmark(data);
           store.toggleAddForm();
-          store.tmpBookmark = {}
+          store.tmpBookmark = {};
           event.currentTarget[`title`].value = "";
           event.currentTarget[`url`].value = "";
           event.currentTarget[`desc`].value = "";
