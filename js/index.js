@@ -1,7 +1,7 @@
 $(function() {
-  Bookmarks.bindEventListeners()
+  Bookmarks.bindEventListeners();
   api.getBookmarks(bookmarks => {
-    bookmarks.forEach(bookmark => store.addBookmark(bookmark))
-    Bookmarks.render()
-  })
-})
+    bookmarks.forEach(bookmark => store.addBookmark(bookmark));
+    Bookmarks.render();
+  });
+});
