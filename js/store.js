@@ -12,7 +12,7 @@ const store = (function() {
   }
 
   const setMinimumRating = (rating) => {
-    store.minumumRating = rating
+    store.minimumRating = rating
   }
 
   return {
