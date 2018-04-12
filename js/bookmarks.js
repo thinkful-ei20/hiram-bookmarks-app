@@ -1,4 +1,20 @@
 const Bookmarks = (function() {
+  const gernerateRatingsFilter = () => {
+    if (store.addForm) return '';
+    return `
+    <label class="ratings-filter">
+      Minimum Rating:
+      <select class="js-rating-filter">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </label>
+    `;
+  };
+
   const generateFormArea = () => {
     if (!store.addForm) {
       return `<button class="button-add js-button-add">Add Bookmark</button>`;
@@ -73,9 +89,11 @@ const Bookmarks = (function() {
     }
 
     const formArea = generateFormArea();
+    const ratingsFilter = gernerateRatingsFilter();
     const bookmarksString = generateBookmarksString(bookmarks);
 
     $(`.js-form-area`).html(formArea);
+    $(`.js-ratings-filter`).html(ratingsFilter);
     $(`.js-bookmarks-list`).html(bookmarksString);
   };
 
