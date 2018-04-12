@@ -1,4 +1,31 @@
 const Bookmarks = (function() {
+  const generateFormArea = () => {
+    if (!store.addForm) {
+      return `<button class="button-add js-button-add">Add Bookmark</button>`;
+    }
+    return `
+    <form role="form" id="js-add-bookmark-form">
+      <label aria-label="title">
+        Title
+        <input type="text" name="title" id="" required>
+      </label>
+      <label aria-label="description">
+        Description
+        <input type="text" name="desc" id="">
+      </label>
+      <label>
+        URL
+        <input type="text" name="url" id="" required>
+      </label>
+      <label>
+        Rating
+        <input type="number" name="rating" id="">
+      </label>
+      <button role="button" type="submit">Add</button>
+    </form>
+    `;
+  };
+
   const generateBookmarkElement = bookmark => {
     let details = ``;
     if (bookmark.detailed) {
@@ -39,7 +66,10 @@ const Bookmarks = (function() {
       store.error = null;
     }
 
+    const formArea = generateFormArea();
     const bookmarksString = generateBookmarksString(bookmarks);
+
+    $(`.js-form-area`).html(formArea);
     $(`.js-bookmarks-list`).html(bookmarksString);
   };
 
@@ -48,8 +78,15 @@ const Bookmarks = (function() {
     render();
   };
 
+  const handleAddBookmarkClicked = () => {
+    $(`main`).on(`click`, `.js-button-add`, event => {
+      store.toggleAddForm()
+      render()
+    })
+  }
+
   const handleNewBookmarkSubmit = () => {
-    $(`#js-add-bookmark-form`).submit(event => {
+    $(`main`).on(`submit`, `#js-add-bookmark-form`, event => {
       event.preventDefault();
       const bookmark = {
         title: event.currentTarget[`title`].value,
@@ -61,6 +98,7 @@ const Bookmarks = (function() {
         bookmark,
         data => {
           store.addBookmark(data);
+          store.toggleAddForm();
           event.currentTarget[`title`].value = "";
           event.currentTarget[`url`].value = "";
           event.currentTarget[`desc`].value = "";
@@ -101,13 +139,14 @@ const Bookmarks = (function() {
 
   const handleBookmarkClicked = () => {
     $(`.js-bookmarks-list`).on(`click`, `.js-bookmark-element`, event => {
-      const id = $(event.currentTarget).data(`id`);
+      const id = getBookmarkIdFromElement(event.currentTarget)
       store.toggleBookmarkDetailed(id);
       render();
     });
   };
 
   const bindEventListeners = () => {
+    handleAddBookmarkClicked();
     handleNewBookmarkSubmit();
     handleDeleteBookmarkClicked();
     handleChangeRatingFilter();

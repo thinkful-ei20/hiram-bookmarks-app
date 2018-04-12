@@ -21,13 +21,19 @@ const store = (function() {
     bookmark.detailed = !bookmark.detailed;
   };
 
+  const toggleAddForm = () => {
+    store.addForm = !store.addForm
+  }
+
   return {
     bookmarks: [],
     error: null,
     minimumRating: null,
+    addForm: false,
     addBookmark,
     findAndDelete,
     setMinimumRating,
-    toggleBookmarkDetailed
+    toggleBookmarkDetailed,
+    toggleAddForm,
   };
 })();
