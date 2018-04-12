@@ -3,7 +3,7 @@ const Bookmarks = (function() {
     return `
       <li class="js-bookmark-element bookmark-item" data-id="${bookmark.id}">
         ${bookmark.title}
-        <div class="bookmark-item-controls>
+        <div class="bookmark-item-controls">
           <button role="button" class="bookmark-delete js-bookmark-delete">
             <span class="button-label">delete</span>
           </button>
