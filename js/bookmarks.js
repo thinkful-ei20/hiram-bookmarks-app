@@ -105,6 +105,7 @@ const Bookmarks = (function() {
   const handleAddBookmarkClicked = () => {
     $(`main`).on(`click`, `.js-button-add`, event => {
       store.toggleAddForm();
+      store.setMinimumRating(1);
       render();
     });
   };
