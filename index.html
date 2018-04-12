@@ -10,25 +10,43 @@
 </head>
 
 <body>
-  <form id="js-add-bookmark-form">
-    <input type="text" name="title" id="" required>
-    <input type="text" name="desc" id="">
-    <input type="text" name="url" id="" required>
-    <input type="number" name="rating" id="">
-    <input type="submit" value="add">
-  </form>
-  <label>Minimum Rating:
-    <select class="js-rating-filter">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-  </label>
-  <p id="err-msg"></p>
-  <div class="js-bookmarks-list"></div>
+  <header role="banner">
+    <h1>Bookmarks</h1>
+  </header>
+  <main role="main">
+      <form role="form" id="js-add-bookmark-form">
+          <label aria-label="title">
+            Title
+            <input type="text" name="title" id="" required>
+          </label>
+          <label aria-label="description">
+            Description
+            <input type="text" name="desc" id="">
+          </label>
+          <label>
+            URL
+            <input type="text" name="url" id="" required>
+          </label>
+          <label>
+            Rating
+            <input type="number" name="rating" id="">
+          </label>
+          <button role="button" type="submit">Add</button>
+        </form>
+        <label>
+          Minimum Rating:
+          <select class="js-rating-filter">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+        <p id="err-msg"></p>
+        <ul class="js-bookmarks-list"></ul>
+  </main>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="./js/api.js"></script>

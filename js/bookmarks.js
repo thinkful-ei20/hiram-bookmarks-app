@@ -11,7 +11,7 @@ const Bookmarks = (function() {
     }
     return `
       <li class="js-bookmark-element bookmark-item" data-id="${bookmark.id}">
-        <h3>${bookmark.title} - ${bookmark.rating}</h3>
+        <h2>${bookmark.title} - ${bookmark.rating}</h2>
         ${details}
         <div class="bookmark-item-controls">
           <button role="button" class="bookmark-delete js-bookmark-delete">
