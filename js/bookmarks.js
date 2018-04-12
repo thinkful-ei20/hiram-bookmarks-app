@@ -4,21 +4,21 @@ const Bookmarks = (function() {
       return `<button class="button-add js-button-add">Add Bookmark</button>`;
     }
     return `
-    <form role="form" id="js-add-bookmark-form">
+    <form role="form" id="js-add-bookmark-form" class="add-bookmark-form">
       <label aria-label="title">
-        Title
+        <p>Title</p>
         <input type="text" name="title" id="" required>
       </label>
       <label aria-label="description">
-        Description
+        <p>Description</p>
         <input type="text" name="desc" id="">
       </label>
       <label>
-        URL
+        <p>URL</p>
         <input type="text" name="url" id="" required>
       </label>
       <label>
-        Rating
+        <p>Rating</p>
         <input type="number" name="rating" id="">
       </label>
       <button role="button" type="submit">Add</button>

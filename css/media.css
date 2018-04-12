@@ -1,4 +1,4 @@
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 800px) {
   body > header, main {
     width: 768px;
     margin-left: auto;

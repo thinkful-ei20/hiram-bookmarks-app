@@ -12,6 +12,22 @@ body > header, main {
   width: 100%;
 }
 
+.add-bookmark-form {
+  border: 1px solid black;
+}
+
+label {
+  display: block;
+}
+
+label > input {
+  width: 100%;
+  border: 1px solid grey;
+  padding: .25rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
 ul {
   list-style-type: none;
 }
