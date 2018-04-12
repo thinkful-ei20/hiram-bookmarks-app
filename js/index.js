@@ -1,4 +1,7 @@
 $(function() {
   Bookmarks.bindEventListeners()
-  Bookmarks.render()
+  api.getBookmarks(bookmarks => {
+    bookmarks.forEach(bookmark => store.addBookmark(bookmark))
+    Bookmarks.render()
+  })
 })
