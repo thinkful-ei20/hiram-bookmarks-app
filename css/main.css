@@ -24,6 +24,11 @@ body > header {
   margin-bottom: 2rem;
 }
 
+select {
+  font-size: 1rem;
+  width: 2rem;
+}
+
 .page-title {
   font-size: 3rem;
   line-height: 1rem;
@@ -39,7 +44,7 @@ body > header {
 }
 
 .add-bookmark-form {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 label {
