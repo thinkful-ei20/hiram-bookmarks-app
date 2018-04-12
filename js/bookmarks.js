@@ -23,15 +23,15 @@ const Bookmarks = (function() {
     <form role="form" id="js-add-bookmark-form" class="add-bookmark-form">
       <label aria-label="title">
         <p>Title</p>
-        <input type="text" name="title" id="" required>
+        <input type="text" name="title" id="" value="${store.tmpBookmark.title || ''}" required>
       </label>
       <label aria-label="description">
         <p>Description</p>
-        <input type="text" name="desc" id="">
+        <input type="text" name="desc" id="" value="${store.tmpBookmark.desc || ''}">
       </label>
       <label>
         <p>URL</p>
-        <input type="text" name="url" id="" required>
+        <input type="text" name="url" id="" value="${store.tmpBookmark.url || ''}" required>
       </label>
       <label>
         <p>Rating</p>
@@ -119,11 +119,13 @@ const Bookmarks = (function() {
         desc: event.currentTarget[`desc`].value,
         rating: event.currentTarget[`rating`].value
       };
+      store.tmpBookmark = bookmark;
       api.createBookmark(
         bookmark,
         data => {
           store.addBookmark(data);
           store.toggleAddForm();
+          store.tmpBookmark = {}
           event.currentTarget[`title`].value = "";
           event.currentTarget[`url`].value = "";
           event.currentTarget[`desc`].value = "";

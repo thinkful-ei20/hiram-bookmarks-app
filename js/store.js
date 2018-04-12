@@ -30,6 +30,7 @@ const store = (function() {
     error: null,
     minimumRating: null,
     addForm: false,
+    tmpBookmark: {},
     addBookmark,
     findAndDelete,
     setMinimumRating,
