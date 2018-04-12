@@ -18,7 +18,7 @@ const store = (function() {
   return {
     bookmarks: [],
     error: null,
-    minumumRating: null,
+    minimumRating: null,
     addBookmark,
     findAndDelete,
     setMinimumRating,
