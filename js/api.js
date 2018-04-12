@@ -6,7 +6,7 @@ const api = (function() {
     $.getJSON(BOOKMARKS_URL, callback)
   }
 
-  addBookmark = (data, callback, errCallback) => {
+  createBookmark = (data, callback, errCallback) => {
     $.ajax({
       url: BOOKMARKS_URL,
       method: `POST`,
@@ -39,7 +39,7 @@ const api = (function() {
 
   return {
     getBookmarks,
-    addBookmark,
+    createBookmark,
     updateBookmark,
     deleteBookmark,
   }
