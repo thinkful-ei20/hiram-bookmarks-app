@@ -36,4 +36,11 @@ const api = (function() {
       error: errCallback,
     })
   }
+
+  return {
+    getBookmarks,
+    addBookmark,
+    updateBookmark,
+    deleteBookmark,
+  }
 }())
