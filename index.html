@@ -15,17 +15,19 @@
     <h1>Bookmarks</h1>
   </header>
   <main role="main">
-    <div class="js-form-area"></div>
-    <label>
-      Minimum Rating:
-      <select class="js-rating-filter">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </label>
+    <div class="col">
+      <div class="js-form-area"></div>
+      <label class="ratings-filter">
+        Minimum Rating:
+        <select class="js-rating-filter">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </label>
+    </div>
     <p id="err-msg"></p>
     <ul class="js-bookmarks-list"></ul>
   </main>

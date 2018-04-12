@@ -12,6 +12,12 @@ body > header, main {
   width: 100%;
 }
 
+.col {
+  display: flex;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
 .add-bookmark-form {
   border: 1px solid black;
 }
