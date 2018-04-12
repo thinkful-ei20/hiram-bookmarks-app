@@ -155,7 +155,7 @@ const Bookmarks = (function() {
   };
 
   const handleChangeRatingFilter = () => {
-    $(`.js-rating-filter`).on(`change`, event => {
+    $(`.js-ratings-filter`).on(`change`, `.js-rating-filter`, event => {
       store.setMinimumRating(event.currentTarget.value);
       render();
     });
