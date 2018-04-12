@@ -1,0 +1,7 @@
+@media screen and (min-width: 768px) {
+  body > header, main {
+    width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1rem 1rem 0 1rem;
+}
+
+body > header, main {
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
