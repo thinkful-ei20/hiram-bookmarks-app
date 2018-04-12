@@ -19,7 +19,13 @@ const Bookmarks = (function() {
       </label>
       <label>
         <p>Rating</p>
-        <input type="number" name="rating" id="">
+        <select name="rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
       </label>
       <button role="button" type="submit">Add</button>
     </form>
@@ -80,10 +86,10 @@ const Bookmarks = (function() {
 
   const handleAddBookmarkClicked = () => {
     $(`main`).on(`click`, `.js-button-add`, event => {
-      store.toggleAddForm()
-      render()
-    })
-  }
+      store.toggleAddForm();
+      render();
+    });
+  };
 
   const handleNewBookmarkSubmit = () => {
     $(`main`).on(`submit`, `#js-add-bookmark-form`, event => {
@@ -139,7 +145,7 @@ const Bookmarks = (function() {
 
   const handleBookmarkClicked = () => {
     $(`.js-bookmarks-list`).on(`click`, `.js-bookmark-element`, event => {
-      const id = getBookmarkIdFromElement(event.currentTarget)
+      const id = getBookmarkIdFromElement(event.currentTarget);
       store.toggleBookmarkDetailed(id);
       render();
     });
