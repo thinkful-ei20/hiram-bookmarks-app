@@ -35,9 +35,7 @@ const Bookmarks = (function() {
       store.error = null
     }
 
-    console.log(`render ran`)
     const bookmarksString = generateBookmarksString(bookmarks)
-
     $(`.js-bookmarks-list`).html(bookmarksString)
   }
 
