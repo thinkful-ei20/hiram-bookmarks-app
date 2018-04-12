@@ -1,8 +1,16 @@
 const Bookmarks = (function() {
-  const generateBookmarkElement = (bookmark) => {
+  const generateBookmarkElement = (bookmark, view = `condensed`) => {
+    let details = ``
+    if (view === `detailed`) {
+      details = `
+        <p class="bookmark-desc">${bookmark.desc}</>
+        <a class="bookmark-link" href="${bookmark.url}">Visit Site</a>
+      `
+    }
     return `
       <li class="js-bookmark-element bookmark-item" data-id="${bookmark.id}">
-        ${bookmark.title}
+        <h3>${bookmark.title} - ${bookmark.rating}</h3>
+        ${details}
         <div class="bookmark-item-controls">
           <button role="button" class="bookmark-delete js-bookmark-delete">
             <span class="button-label">delete</span>
