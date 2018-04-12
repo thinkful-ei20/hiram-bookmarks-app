@@ -11,7 +11,7 @@ const api = (function() {
       url: BOOKMARKS_URL,
       method: `POST`,
       contentType: `application/json`,
-      data: data,
+      data: JSON.stringify(data),
       success: callback,
       error: errCallback,
     })
@@ -22,7 +22,7 @@ const api = (function() {
       url: `${BOOKMARKS_URL}/${id}`,
       method: `PATCH`,
       contentType: `application/json`,
-      data: newData,
+      data: JSON.stringify(newData),
       success: callback,
       error: errCallback,
     })
