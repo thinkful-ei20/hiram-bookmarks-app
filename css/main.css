@@ -20,6 +20,7 @@ body > header, main {
 }
 
 body > header {
+  margin-top: .25rem;
   margin-bottom: 2rem;
 }
 
@@ -34,6 +35,7 @@ body > header {
   justify-content: space-between;
   margin-bottom: 1rem;
   border-bottom: 1px solid black;
+  padding-bottom: .25rem;
 }
 
 .add-bookmark-form {
@@ -59,6 +61,11 @@ ul {
 .bookmark-item {
   margin-top: 1rem;
   margin-bottom: 1rem;
+  cursor: pointer;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;
 }
 
 .bookmark-item:first-child {
@@ -67,4 +74,13 @@ ul {
 
 .bookmark-item:last-child {
   margin-bottom: 0;
+}
+
+.bookmark-item-rating {
+  position: relative;
+  top: -.5rem;
+}
+
+.checked {
+  color: goldenrod;
 }

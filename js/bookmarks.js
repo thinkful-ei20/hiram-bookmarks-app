@@ -60,7 +60,14 @@ const Bookmarks = (function() {
     }
     return `
       <li class="js-bookmark-element bookmark-item" data-id="${bookmark.id}">
-        <h2>${bookmark.title} - ${bookmark.rating}</h2>
+        <h2 class="bookmark-item-title">${bookmark.title}</h2>
+        <small class="bookmark-item-rating">
+          <span class="fa fa-star ${bookmark.rating >= 1 ? "checked" : ""}"></span>
+          <span class="fa fa-star ${bookmark.rating >= 2 ? "checked" : ""}"></span>
+          <span class="fa fa-star ${bookmark.rating >= 3 ? "checked" : ""}"></span>
+          <span class="fa fa-star ${bookmark.rating >= 4 ? "checked" : ""}"></span>
+          <span class="fa fa-star ${bookmark.rating >= 5 ? "checked" : ""}"></span>
+        </small>
         ${details}
         <div class="bookmark-item-controls">
           <button role="button" class="bookmark-delete js-bookmark-delete">
