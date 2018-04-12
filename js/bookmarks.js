@@ -43,7 +43,12 @@ const Bookmarks = (function() {
           <option value="5">5</option>
         </select>
       </label>
-      <button role="button" type="submit">Add</button>
+      <button role="button" type="submit">
+        <span class="button-label">Add</span>
+      </button>
+      <button role="button" class="js-button-cancel">
+        <span class="button-label">Cancel</span>
+      </button>
     </form>
     `;
   };
@@ -71,7 +76,7 @@ const Bookmarks = (function() {
         ${details}
         <div class="bookmark-item-controls">
           <button role="button" class="bookmark-delete js-bookmark-delete">
-            <span class="button-label">delete</span>
+            <span class="button-label">Delete</span>
           </button>
         </div>
       </li>
@@ -116,6 +121,13 @@ const Bookmarks = (function() {
       render();
     });
   };
+
+  const handleCancelClicked = () => {
+    $(`main`).on(`click`, `.js-button-cancel`, event => {
+      store.toggleAddForm();
+      render();
+    });
+  }
 
   const handleNewBookmarkSubmit = () => {
     $(`main`).on(`submit`, `#js-add-bookmark-form`, event => {
@@ -185,6 +197,7 @@ const Bookmarks = (function() {
     handleDeleteBookmarkClicked();
     handleChangeRatingFilter();
     handleBookmarkClicked();
+    handleCancelClicked();
   };
 
   return {
