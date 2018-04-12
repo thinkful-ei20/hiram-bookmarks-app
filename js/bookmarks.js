@@ -48,7 +48,7 @@ const Bookmarks = (function() {
         rating: event.currentTarget[`rating`].value,
       }
       api.createBookmark(bookmark, data => {
-        store.addItem(data)
+        store.addBookmark(data)
         render()
       }, handleError)
     })
@@ -72,7 +72,7 @@ const Bookmarks = (function() {
 
   const handleChangeRatingFilter = () => {
     $(`.js-rating-filter`).on(`change`, event => {
-      store.setRatingLevel(event.currentTarget.value)
+      store.setMinimumRating(event.currentTarget.value)
       render()
     })
   }
