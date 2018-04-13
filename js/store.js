@@ -22,8 +22,8 @@ const store = (function() {
   };
 
   const toggleAddForm = () => {
-    store.addForm = !store.addForm
-  }
+    store.addForm = !store.addForm;
+  };
 
   return {
     bookmarks: [],
@@ -35,6 +35,6 @@ const store = (function() {
     findAndDelete,
     setMinimumRating,
     toggleBookmarkDetailed,
-    toggleAddForm,
+    toggleAddForm
   };
 })();

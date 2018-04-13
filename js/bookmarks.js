@@ -124,8 +124,10 @@ const Bookmarks = (function() {
     });
 
     if (store.error) {
-      $(`#err-msg`).html(store.error);
+      $(`.err-msg-area`).html(`<p id="err-msg">${store.error}</p>`);
       store.error = null;
+    } else {
+      $(`.err-msg-area`).html('')
     }
 
     const formArea = generateFormArea();
