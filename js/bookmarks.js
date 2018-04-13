@@ -152,9 +152,15 @@ const Bookmarks = (function() {
     });
   };
 
+  const clearForm = () => {
+    $(`#js-add-bookmark-form`)[0].reset();
+    store.tmpBookmark = {};
+  }
+
   const handleCancelClicked = () => {
     $(`main`).on(`click`, `.js-button-cancel`, event => {
       store.toggleAddForm();
+      clearForm();
       render();
     });
   };
@@ -175,10 +181,7 @@ const Bookmarks = (function() {
           store.addBookmark(data);
           store.toggleAddForm();
           store.tmpBookmark = {};
-          event.currentTarget[`title`].value = "";
-          event.currentTarget[`url`].value = "";
-          event.currentTarget[`desc`].value = "";
-          event.currentTarget[`rating`].value = "";
+          clearForm();
           render();
         },
         handleError
