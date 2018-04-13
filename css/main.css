@@ -61,9 +61,17 @@ label > input {
 }
 
 .form-button-group button {
-  margin-top: .5rem;
+  margin: .5rem .25rem 0 .25rem;
   padding: .25rem 1rem;
   flex-grow: 1;
+}
+
+.form-button-group :first-child {
+  margin-left: 0;
+}
+
+.form-button-group :last-child {
+  margin-right: 0;
 }
 
 ul {
