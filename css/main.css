@@ -125,7 +125,6 @@ ul {
 .ratings-filter-area {
   display: flex;
   align-items: center;
-  flex-grow: 1;
 }
 
 .ratings-filter {
@@ -171,7 +170,7 @@ ul {
 }
 
 .form-area {
-  flex-grow: 11;
+  flex-grow: 1;
 }
 
 .bookmark-item-body {
