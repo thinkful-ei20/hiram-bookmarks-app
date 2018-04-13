@@ -215,3 +215,11 @@ i.fas.fa-times-circle:hover {
   display: inline-block;
   font-weight: bold;
 }
+
+#err-msg {
+  background: #FFDF90;
+  padding: .5rem;
+  border-radius: .25rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
