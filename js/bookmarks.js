@@ -2,16 +2,19 @@ const Bookmarks = (function() {
   const gernerateRatingsFilter = () => {
     if (store.addForm) return "";
     return `
-    <label class="ratings-filter">
+    <label for="rating-filter" id="ratings-filter-label">
       Minimum Rating:
-      <select class="js-rating-filter">
+    </label>
+    &nbsp;
+    <div class="ratings-filter">
+      <select class="js-rating-filter" id="rating-filter">
         <option value="1">1</option>
         <option value="2" ${store.minimumRating === 2 ? "selected" : ""}>2</option>
         <option value="3" ${store.minimumRating === 3 ? "selected" : ""}>3</option>
         <option value="4" ${store.minimumRating === 4 ? "selected" : ""}>4</option>
         <option value="5" ${store.minimumRating === 5 ? "selected" : ""}>5</option>
       </select>
-    </label>
+    </div>
     `;
   };
 
@@ -94,7 +97,7 @@ const Bookmarks = (function() {
           <div class="bookmark-item-header-right">
             <div class="bookmark-item-controls">
               <button role="button" class="bookmark-delete js-bookmark-delete">
-                <span class="button-label" aria-label="delete"><i class="fas fa-times-circle"></i></span>
+                <span class="button-label" aria-label="delete"><i class="fas fa-times-circle fa-2x"></i></span>
               </button>
             </div>
           </div>
