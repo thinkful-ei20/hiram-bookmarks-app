@@ -72,7 +72,7 @@ const Bookmarks = (function() {
       `;
     }
     return `
-      <li class="js-bookmark-element bookmark-item" data-id="${bookmark.id}">
+      <article class="js-bookmark-element bookmark-item" data-id="${bookmark.id}">
         <header class="bookmark-item-header">
           <div class="bookmark-item-header-left">
             <h2 class="bookmark-item-title">${bookmark.title}</h2>
@@ -107,7 +107,7 @@ const Bookmarks = (function() {
             ${details}
           </div>
         </div>
-      </li>
+      </article>
     `;
   };
 
