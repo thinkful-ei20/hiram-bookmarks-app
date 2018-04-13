@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto');
+@import url("https://fonts.googleapis.com/css?family=Raleway|Roboto");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
@@ -12,24 +12,32 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6, input, button {
-  font-family: 'Raleway', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+button {
+  font-family: "Raleway", sans-serif;
 }
 
 body {
   padding: 1rem 1rem 0 1rem;
-  background: #8895DC;
-  color: #111D13;
+  background: #B9C0E9;
+  color: #111d13;
+  margin-top: 1.5rem;
 }
 
-body > header, main {
+body > header,
+main {
   width: 100%;
 }
 
 body > header {
-  margin-top: 1rem;
   margin-bottom: 2rem;
-  padding-left: .5rem;
+  padding-left: 0.5rem;
 }
 
 select {
@@ -37,8 +45,10 @@ select {
 }
 
 .page-title {
-  font-size: 3rem;
+  font-size: 5rem;
   line-height: 1rem;
+  color: #333332;
+  text-shadow: 4px 3px 0px #E2E6FB, 9px 8px 0px rgba(0,0,0,0.15);
 }
 
 .menu-area {
@@ -46,9 +56,9 @@ select {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
-  padding-bottom: .25rem;
-  padding-left: .5rem;
-  padding-right: .5rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 label {
@@ -58,7 +68,7 @@ label {
 label > input {
   width: 100%;
   border: 1px solid grey;
-  padding: .25rem;
+  padding: 0.25rem;
   font-size: 1.5rem;
   line-height: 1.5rem;
 }
@@ -69,8 +79,8 @@ label > input {
 }
 
 .form-button-group button {
-  margin: .5rem .25rem 0 .25rem;
-  padding: .25rem 1rem;
+  margin: 0.5rem 0.25rem 0 0.25rem;
+  padding: 0.25rem 1rem;
   flex-grow: 1;
 }
 
@@ -89,34 +99,34 @@ label > input {
 }
 
 .bookmark-item {
-  margin: .5rem;
+  margin: 0.5rem;
   cursor: pointer;
-  -webkit-user-select: none;  /* Chrome all / Safari all */
-  -moz-user-select: none;     /* Firefox all */
-  -ms-user-select: none;      /* IE 10+ */
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
   user-select: none;
   background-color: whitesmoke;
-  border-radius: .25rem;
-  box-shadow: 0px 0px 10px rgba(0,0,0,.2);
+  border-radius: 0.25rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   flex-grow: 1;
   width: 100%;
 }
 
 .bookmark-item-rating {
   position: relative;
-  top: -.25rem;
+  top: -0.25rem;
 }
 
 .checked {
-  color: #FFC841;
+  color: #ffc841;
 }
 
 .button-add {
-  padding: .25rem .5rem;
+  padding: 0.25rem 0.5rem;
   border-style: none;
   background: white;
   font-size: 1rem;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   font-weight: bold;
 }
 
@@ -132,7 +142,7 @@ label > input {
 }
 
 .ratings-filter:after {
-  content: '<>';
+  content: "<>";
   font: 1rem "Consolas", monospace;
   color: #333;
   -webkit-transform: rotate(90deg);
@@ -142,7 +152,7 @@ label > input {
   right: 5px;
   top: 10px;
   padding: 0 0 2px;
-  border-bottom: 1px solid #999;  
+  border-bottom: 1px solid #999;
   position: absolute;
   pointer-events: none;
 }
@@ -180,38 +190,42 @@ label > input {
 .bookmark-item-header {
   display: flex;
   justify-content: space-between;
-  background: #5E6FC7;
+  background: #5e6fc7;
   padding: 1rem;
-  border-top-left-radius: .25rem;
-  border-top-right-radius: .25rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
 }
 
 .bookmark-item-header-right > .bookmark-item-controls {
   position: relative;
-  top: .25rem;
+  top: 0.25rem;
 }
 
 .bookmark-link {
   display: block;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .bookmark-link:hover {
-  color: #8895DC;
+  color: #8895dc;
 }
 
-.bookmark-delete {
+button.bookmark-delete {
   background: none;
   border: none;
 }
 
+button.bookmark-delete:hover, button.bookmark-delete:focus {
+  color: #ffc841;
+}
+
 i.fas.fa-times-circle {
-  color: #FFFCE8;
+  color: #fffce8;
   cursor: pointer;
 }
 
-i.fas.fa-times-circle:hover {
-  color: #FFC841;
+button.bookmark-delete:hover i.fas.fa-times-circle {
+  color: #ffc841;
 }
 
 #ratings-filter-label {
@@ -220,9 +234,9 @@ i.fas.fa-times-circle:hover {
 }
 
 #err-msg {
-  background: #FFDF90;
-  padding: .5rem;
-  border-radius: .25rem;
+  background: #ffdf90;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
   margin-bottom: 1rem;
   font-size: 1.25rem;
 }
