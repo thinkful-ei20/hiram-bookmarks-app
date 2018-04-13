@@ -147,8 +147,8 @@ label > input {
 .ratings-filter select {
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;  
-  display: inline-block;
+  /* appearance: none;   */
+  /* display: inline-block; */
   width: 100%;
   height: 2rem;
   float: right;
