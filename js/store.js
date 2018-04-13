@@ -13,7 +13,7 @@ const store = (function() {
   };
 
   const setMinimumRating = rating => {
-    store.minimumRating = rating;
+    store.minimumRating = Number(rating);
   };
 
   const toggleBookmarkDetailed = id => {

@@ -6,10 +6,10 @@ const Bookmarks = (function() {
       Minimum Rating:
       <select class="js-rating-filter">
         <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="2" ${store.minimumRating === 2 ? "selected" : ""}>2</option>
+        <option value="3" ${store.minimumRating === 3 ? "selected" : ""}>3</option>
+        <option value="4" ${store.minimumRating === 4 ? "selected" : ""}>4</option>
+        <option value="5" ${store.minimumRating === 5 ? "selected" : ""}>5</option>
       </select>
     </label>
     `;
