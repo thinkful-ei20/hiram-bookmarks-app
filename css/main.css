@@ -29,6 +29,7 @@ body > header, main {
 body > header {
   margin-top: 1rem;
   margin-bottom: 2rem;
+  padding-left: .5rem;
 }
 
 select {
@@ -46,6 +47,8 @@ select {
   justify-content: space-between;
   margin-bottom: 1rem;
   padding-bottom: .25rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
 }
 
 label {

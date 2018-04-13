@@ -9,10 +9,18 @@ const Bookmarks = (function() {
     <div class="ratings-filter">
       <select class="js-rating-filter" id="rating-filter">
         <option value="1">1</option>
-        <option value="2" ${store.minimumRating === 2 ? "selected" : ""}>2</option>
-        <option value="3" ${store.minimumRating === 3 ? "selected" : ""}>3</option>
-        <option value="4" ${store.minimumRating === 4 ? "selected" : ""}>4</option>
-        <option value="5" ${store.minimumRating === 5 ? "selected" : ""}>5</option>
+        <option value="2" ${
+          store.minimumRating === 2 ? "selected" : ""
+        }>2</option>
+        <option value="3" ${
+          store.minimumRating === 3 ? "selected" : ""
+        }>3</option>
+        <option value="4" ${
+          store.minimumRating === 4 ? "selected" : ""
+        }>4</option>
+        <option value="5" ${
+          store.minimumRating === 5 ? "selected" : ""
+        }>5</option>
       </select>
     </div>
     `;
@@ -53,7 +61,7 @@ const Bookmarks = (function() {
         <button role="button" type="submit">
           <span class="button-label">Add</span>
         </button>
-        <button role="button" class="js-button-cancel">
+        <button role="button" class="js-button-cancel" type="button">
           <span class="button-label">Cancel</span>
         </button>
       </div>
@@ -72,7 +80,9 @@ const Bookmarks = (function() {
       `;
     }
     return `
-      <article class="js-bookmark-element bookmark-item" data-id="${bookmark.id}">
+      <article class="js-bookmark-element bookmark-item" data-id="${
+        bookmark.id
+      }" tabindex="0">
         <header class="bookmark-item-header">
           <div class="bookmark-item-header-left">
             <h2 class="bookmark-item-title">${bookmark.title}</h2>
@@ -127,7 +137,7 @@ const Bookmarks = (function() {
       $(`.err-msg-area`).html(`<p id="err-msg">${store.error}</p>`);
       store.error = null;
     } else {
-      $(`.err-msg-area`).html('')
+      $(`.err-msg-area`).html("");
     }
 
     const formArea = generateFormArea();
@@ -155,7 +165,7 @@ const Bookmarks = (function() {
   const clearForm = () => {
     $(`#js-add-bookmark-form`)[0].reset();
     store.tmpBookmark = {};
-  }
+  };
 
   const handleCancelClicked = () => {
     $(`main`).on(`click`, `.js-button-cancel`, event => {
@@ -221,6 +231,14 @@ const Bookmarks = (function() {
       const id = getBookmarkIdFromElement(event.currentTarget);
       store.toggleBookmarkDetailed(id);
       render();
+    });
+
+    $(`.js-bookmarks-list`).on(`keypress`, `.js-bookmark-element`, event => {
+      if (event.which === 13 || event.which === 32) {
+        const id = getBookmarkIdFromElement(event.currentTarget);
+        store.toggleBookmarkDetailed(id);
+        render();
+      }
     });
   };
 
