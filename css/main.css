@@ -20,7 +20,7 @@ body > header, main {
 }
 
 body > header {
-  margin-top: .25rem;
+  margin-top: 1rem;
   margin-bottom: 2rem;
 }
 
@@ -125,8 +125,14 @@ ul {
 }
 
 .bookmark-link {
+  display: block;
+  margin-top: .5rem;
   color: blue;
   text-decoration: none;
+}
+
+.bookmark-link:hover {
+  color: blueviolet;
 }
 
 .bookmark-delete {
