@@ -123,3 +123,8 @@ ul {
   position: relative;
   top: .25rem;
 }
+
+.bookmark-link {
+  color: blue;
+  text-decoration: none;
+}
