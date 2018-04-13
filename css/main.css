@@ -128,3 +128,8 @@ ul {
   color: blue;
   text-decoration: none;
 }
+
+.bookmark-delete {
+  background: none;
+  border: none;
+}

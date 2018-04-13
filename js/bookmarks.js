@@ -94,7 +94,7 @@ const Bookmarks = (function() {
           <div class="bookmark-item-header-right">
             <div class="bookmark-item-controls">
               <button role="button" class="bookmark-delete js-bookmark-delete">
-                <span class="button-label">Delete</span>
+                <span class="button-label" aria-label="delete"><i class="fas fa-times-circle"></i></span>
               </button>
             </div>
           </div>
