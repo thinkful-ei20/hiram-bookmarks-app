@@ -28,7 +28,7 @@ const Bookmarks = (function() {
 
   const generateFormArea = () => {
     if (!store.addForm) {
-      return `<button class="button-add js-button-add">Add Bookmark</button>`;
+      return `<button class="btn js-button-add">Add Bookmark</button>`;
     }
     return `
     <form role="form" id="js-add-bookmark-form" class="add-bookmark-form">
@@ -58,10 +58,10 @@ const Bookmarks = (function() {
         </select>
       </label>
       <div class="form-button-group">
-        <button role="button" type="submit">
+        <button role="button" type="submit" class="btn">
           <span class="button-label">Add</span>
         </button>
-        <button role="button" class="js-button-cancel" type="button">
+        <button role="button" class="btn js-button-cancel" type="button">
           <span class="button-label">Cancel</span>
         </button>
       </div>
