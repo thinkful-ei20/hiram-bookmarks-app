@@ -1,0 +1,25 @@
+{
+  "name": "hiram-bookmarks-app",
+  "version": "1.0.0",
+  "description": "a developing bookmarking app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinkful-ei20/hiram-bookmarks-app.git"
+  },
+  "keywords": [],
+  "author": "Hiram Cruz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thinkful-ei20/hiram-bookmarks-app/issues"
+  },
+  "homepage": "https://github.com/thinkful-ei20/hiram-bookmarks-app#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
+  }
+}
