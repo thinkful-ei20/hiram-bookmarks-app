@@ -1,46 +1,40 @@
 const api = (function() {
-  const BASE_URL = `https://thinkful-list-api.herokuapp.com/hiram`;
-  const BOOKMARKS_URL = `${BASE_URL}/bookmarks`;
+  const BASE_URL = `https://thinkful-list-api.herokuapp.com/hiram`
+  const BOOKMARKS_URL = `${BASE_URL}/bookmarks`
 
-  getBookmarks = callback => {
-    $.getJSON(BOOKMARKS_URL, callback);
-  };
+  getBookmarks = () => {
+    return $.getJSON(BOOKMARKS_URL)
+  }
 
-  createBookmark = (data, callback, errCallback) => {
-    $.ajax({
+  createBookmark = data => {
+    return $.ajax({
       url: BOOKMARKS_URL,
       method: `POST`,
       contentType: `application/json`,
       data: JSON.stringify(data),
-      success: callback,
-      error: errCallback
-    });
-  };
+    })
+  }
 
-  updateBookmark = (id, newData, callback, errCallback) => {
-    $.ajax({
+  updateBookmark = (id, newData) => {
+    return $.ajax({
       url: `${BOOKMARKS_URL}/${id}`,
       method: `PATCH`,
       contentType: `application/json`,
       data: JSON.stringify(newData),
-      success: callback,
-      error: errCallback
-    });
-  };
+    })
+  }
 
-  deleteBookmark = (id, callback, errCallback) => {
-    $.ajax({
+  deleteBookmark = id => {
+    return $.ajax({
       url: `${BOOKMARKS_URL}/${id}`,
       method: `DELETE`,
-      success: callback,
-      error: errCallback
-    });
-  };
+    })
+  }
 
   return {
     getBookmarks,
     createBookmark,
     updateBookmark,
-    deleteBookmark
-  };
-})();
+    deleteBookmark,
+  }
+})()
